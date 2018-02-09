@@ -1,0 +1,26 @@
+{
+	"name": "ninelines-sharing",
+	"version": "1.0.2",
+	"description": "Sharing for your website",
+	"keywords": [
+		"sharing",
+		"social"
+	],
+	"author": "Alex Nikishkin <mapuaptu@gmail.com>",
+	"contributors": [
+		"Dmitry Artemov <d.artemov@9-lines.com>"
+	],
+	"license": "ISC",
+	"homepage": "https://github.com/ninelines-team/ninelines-sharing#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ninelines-team/ninelines-sharing.git"
+	},
+	"bugs": {
+		"url": "https://github.com/ninelines-team/ninelines-sharing/issues"
+	},
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	}
+}
