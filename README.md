@@ -35,7 +35,7 @@ npm install --save ninelines-sharing
 ```js
 import {Share} from 'ninelines-sharing';
 
-document.querySelector('[data-social]').forEach((link) => {
+document.querySelectorAll('[data-social]').forEach((link) => {
     link.addEventListener('click', (event) => {
         switch (event.currentTarget.dataset.social) {
             case 'facebook':
