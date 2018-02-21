@@ -19,8 +19,18 @@
 	"bugs": {
 		"url": "https://github.com/ninelines-team/ninelines-sharing/issues"
 	},
-	"main": "index.js",
+	"main": "dist/ninelines-sharing.umd.js",
+	"jsnext:main": "dist/ninelines-sharing.es.js",
 	"scripts": {
+		"js": "rollup --config",
+		"build": "npm run js",
 		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"devDependencies": {
+		"babel-core": "^6.26.0",
+		"babel-plugin-external-helpers": "^6.22.0",
+		"babel-preset-env": "^1.6.1",
+		"rollup": "^0.56.2",
+		"rollup-plugin-babel": "^3.0.3"
 	}
 }
