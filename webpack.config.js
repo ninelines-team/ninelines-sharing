@@ -8,8 +8,12 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].js',
-		library: 'ninelines',
+		library: [
+			'ninelines',
+			'Share',
+		],
 		libraryTarget: 'umd',
+		libraryExport: 'Share',
 	},
 	module: {
 		rules: [
