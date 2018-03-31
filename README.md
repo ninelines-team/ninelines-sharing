@@ -35,29 +35,34 @@ npm install --save ninelines-sharing
 ```js
 import {Share} from 'ninelines-sharing';
 
-document.querySelectorAll('[data-social]').forEach((link) => {
+Array.from(document.querySelectorAll('[data-social]')).forEach((link) => {
     link.addEventListener('click', (event) => {
         switch (event.currentTarget.dataset.social) {
             case 'facebook':
-                Share.facebook(location.pathname);
+                Share.facebook(location.href);
                 break;
                 
             case 'vk':
-                Share.vk(location.pathname);
+                Share.vk(location.href);
                 break;
             
             case 'twitter':
-                Share.twitter(location.pathname);
+                Share.twitter(location.href);
                 break;
             
             case 'google':
-                Share.google(location.pathname);
+                Share.google(location.href);
                 break;
             
             case 'ok':
-                Share.ok(location.pathname);
+                Share.ok(location.href);
                 break;
         }
     });
 });
 ```
+
+> При отсутствии модульной системы библиотека (`dist/ninelines-sharing.js`) экспортирует `Share` в глобальный объект `ninelines`:
+> ```js
+> ninelines.Share.facebook(location.href);
+> ```
