@@ -37,6 +37,8 @@ import {Share} from 'ninelines-sharing';
 
 Array.from(document.querySelectorAll('[data-social]')).forEach((link) => {
     link.addEventListener('click', (event) => {
+    	event.preventDefault();
+    	
         switch (event.currentTarget.dataset.social) {
             case 'facebook':
                 Share.facebook(location.href);
