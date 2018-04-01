@@ -1,4 +1,4 @@
-export class Share {
+export default class Share {
 	/**
 	 * @param {string} url
 	 * @returns {Window}

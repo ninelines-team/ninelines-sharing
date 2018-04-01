@@ -13,7 +13,7 @@ module.exports = {
 			'Share',
 		],
 		libraryTarget: 'umd',
-		libraryExport: 'Share',
+		libraryExport: 'default',
 	},
 	module: {
 		rules: [

@@ -33,7 +33,7 @@ npm install --save ninelines-sharing
 ```
 
 ```js
-import {Share} from 'ninelines-sharing';
+import Share from 'ninelines-sharing';
 
 Array.from(document.querySelectorAll('[data-social]')).forEach((link) => {
     link.addEventListener('click', (event) => {
