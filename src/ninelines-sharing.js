@@ -14,10 +14,12 @@ export default class Share {
 
 	/**
 	 * @param {string} url
+	 * @param {string} [title]
+	 * @param {string} [features]
 	 * @returns {Window}
 	 */
-	static openWindow(url) {
-		return window.open(url, 'Поделиться', 'width=640,height=480,location=no,toolbar=no,menubar=no');
+	static openWindow(url, title = 'Поделиться', features = 'width=640,height=480,location=no,toolbar=no,menubar=no') {
+		return window.open(url, title, features);
 	}
 
 	/**
