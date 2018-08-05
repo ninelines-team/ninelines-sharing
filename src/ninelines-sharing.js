@@ -1,5 +1,18 @@
 export default class Share {
 	/**
+	 * @param {string} social
+	 * @param {string} url
+	 * @returns {string|null}
+	 */
+	static getUrl(social, url) {
+		if (Share.urlList[social]) {
+			return Share.urlList[social] + encodeURIComponent(url);
+		}
+
+		return null;
+	}
+
+	/**
 	 * @param {string} url
 	 * @returns {Window}
 	 */
@@ -12,7 +25,7 @@ export default class Share {
 	 * @returns {Window}
 	 */
 	static facebook(url) {
-		return Share.openWindow(`https://facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`);
+		return Share.openWindow(Share.getUrl('facebook', url));
 	}
 
 	/**
@@ -20,7 +33,7 @@ export default class Share {
 	 * @returns {Window}
 	 */
 	static vk(url) {
-		return Share.openWindow(`https://vk.com/share.php?url=${encodeURIComponent(url)}`);
+		return Share.openWindow(Share.getUrl('vk', url));
 	}
 
 	/**
@@ -28,7 +41,7 @@ export default class Share {
 	 * @returns {Window}
 	 */
 	static twitter(url) {
-		return Share.openWindow(`http://twitter.com/share?url=${encodeURIComponent(url)}`);
+		return Share.openWindow(Share.getUrl('twitter', url));
 	}
 
 	/**
@@ -36,7 +49,7 @@ export default class Share {
 	 * @returns {Window}
 	 */
 	static google(url) {
-		return Share.openWindow(`https://plus.google.com/share?url=${encodeURIComponent(url)}`);
+		return Share.openWindow(Share.getUrl('google', url));
 	}
 
 	/**
@@ -44,6 +57,14 @@ export default class Share {
 	 * @returns {Window}
 	 */
 	static ok(url) {
-		return Share.openWindow(`https://connect.ok.ru/offer?url=${encodeURIComponent(url)}`);
+		return Share.openWindow(Share.getUrl('ok', url));
 	}
 }
+
+Share.urlList = {
+	facebook: 'https://facebook.com/sharer/sharer.php?u=',
+	vk: 'https://vk.com/share.php?url=',
+	twitter: 'http://twitter.com/share?url=',
+	google: 'https://plus.google.com/share?url=',
+	ok: 'https://connect.ok.ru/offer?url=',
+};
