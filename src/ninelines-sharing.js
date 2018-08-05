@@ -14,52 +14,74 @@ export default class Share {
 
 	/**
 	 * @param {string} url
+	 * @param {Promise|null} [promise]
 	 * @param {string} [title]
 	 * @param {string} [features]
 	 * @returns {Window}
 	 */
-	static openWindow(url, title = 'Поделиться', features = 'width=640,height=480,location=no,toolbar=no,menubar=no') {
-		return window.open(url, title, features);
+	static openWindow(url, promise = null, title = 'Поделиться', features = 'width=640,height=480,location=no,toolbar=no,menubar=no') {
+		let shareWindow;
+
+		if (promise) {
+			shareWindow = window.open('', title, features);
+
+			promise
+				.then(() => {
+					shareWindow.location = url;
+				})
+				.catch(() => {
+					shareWindow.close();
+				});
+		} else {
+			shareWindow = window.open(url, title, features);
+		}
+
+		return shareWindow;
 	}
 
 	/**
 	 * @param {string} url
+	 * @param {Promise|null} [promise]
 	 * @returns {Window}
 	 */
-	static facebook(url) {
-		return Share.openWindow(Share.getUrl('facebook', url));
+	static facebook(url, promise = null) {
+		return Share.openWindow(Share.getUrl('facebook', url), promise);
 	}
 
 	/**
 	 * @param {string} url
+	 * @param {Promise|null} [promise]
 	 * @returns {Window}
 	 */
-	static vk(url) {
-		return Share.openWindow(Share.getUrl('vk', url));
+	static vk(url, promise = null) {
+		return Share.openWindow(Share.getUrl('vk', url), promise);
 	}
 
 	/**
 	 * @param {string} url
+	 * @param {Promise|null} [promise]
 	 * @returns {Window}
 	 */
-	static twitter(url) {
-		return Share.openWindow(Share.getUrl('twitter', url));
+	static twitter(url, promise = null) {
+		return Share.openWindow(Share.getUrl('twitter', url), promise);
 	}
 
 	/**
 	 * @param {string} url
+	 * @param {Promise|null} [promise]
 	 * @returns {Window}
 	 */
-	static google(url) {
-		return Share.openWindow(Share.getUrl('google', url));
+	static google(url, promise = null) {
+		return Share.openWindow(Share.getUrl('google', url), promise);
 	}
 
 	/**
 	 * @param {string} url
+	 * @param {Promise|null} [promise]
 	 * @returns {Window}
 	 */
-	static ok(url) {
-		return Share.openWindow(Share.getUrl('ok', url));
+	static ok(url, promise = null) {
+		return Share.openWindow(Share.getUrl('ok', url), promise);
 	}
 }
 
