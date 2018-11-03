@@ -71,15 +71,6 @@ export default class Share {
 	 * @param {Promise|null} [promise]
 	 * @returns {Window}
 	 */
-	static google(url, promise = null) {
-		return Share.openWindow(Share.getUrl('google', url), promise);
-	}
-
-	/**
-	 * @param {string} url
-	 * @param {Promise|null} [promise]
-	 * @returns {Window}
-	 */
 	static ok(url, promise = null) {
 		return Share.openWindow(Share.getUrl('ok', url), promise);
 	}
@@ -89,6 +80,5 @@ Share.urlList = {
 	facebook: 'https://facebook.com/sharer/sharer.php?u=',
 	vk: 'https://vk.com/share.php?url=',
 	twitter: 'http://twitter.com/share?url=',
-	google: 'https://plus.google.com/share?url=',
 	ok: 'https://connect.ok.ru/offer?url=',
 };
