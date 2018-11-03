@@ -23,9 +23,6 @@ npm install --save ninelines-sharing
     <button class="social__button" type="button" data-social="twitter">
         Twitter
     </button>
-    <button class="social__button" type="button" data-social="google">
-        Google Plus
-    </button>
     <button class="social__button" type="button" data-social="ok">
         Одноклассники
     </button>
@@ -50,10 +47,6 @@ Array.from(document.querySelectorAll('[data-social]')).forEach((link) => {
 
             case 'twitter':
                 Share.twitter(url);
-                break;
-
-            case 'google':
-                Share.google(url);
                 break;
 
             case 'ok':
