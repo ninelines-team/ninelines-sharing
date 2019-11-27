@@ -6,7 +6,7 @@ export default class Share {
 	 */
 	static getUrl(social, url) {
 		if (Share.urlList[social]) {
-			return Share.urlList[social] + encodeURIComponent(url);
+			return Share.urlList[social] + url;
 		}
 
 		return null;
