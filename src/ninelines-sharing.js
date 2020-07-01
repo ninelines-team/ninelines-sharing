@@ -1,12 +1,14 @@
 export default class Share {
+
 	/**
 	 * @param {string} social
 	 * @param {string} url
 	 * @returns {string|null}
 	 */
+
 	static getUrl(social, url) {
 		if (Share.urlList[social]) {
-			return Share.urlList[social] + url;
+			return Share.urlList[social] + encodeURIComponent(url);
 		}
 
 		return null;
@@ -19,6 +21,7 @@ export default class Share {
 	 * @param {string} [features]
 	 * @returns {Window}
 	 */
+
 	static openWindow(url, promise = null, title = 'Поделиться', features = 'width=640,height=480,location=no,toolbar=no,menubar=no') {
 		let shareWindow;
 
@@ -44,36 +47,27 @@ export default class Share {
 	 * @param {Promise|null} [promise]
 	 * @returns {Window}
 	 */
+
 	static facebook(url, promise = null) {
 		return Share.openWindow(Share.getUrl('facebook', url), promise);
 	}
 
-	/**
-	 * @param {string} url
-	 * @param {Promise|null} [promise]
-	 * @returns {Window}
-	 */
 	static vk(url, promise = null) {
 		return Share.openWindow(Share.getUrl('vk', url), promise);
 	}
 
-	/**
-	 * @param {string} url
-	 * @param {Promise|null} [promise]
-	 * @returns {Window}
-	 */
 	static twitter(url, promise = null) {
 		return Share.openWindow(Share.getUrl('twitter', url), promise);
 	}
 
-	/**
-	 * @param {string} url
-	 * @param {Promise|null} [promise]
-	 * @returns {Window}
-	 */
 	static ok(url, promise = null) {
 		return Share.openWindow(Share.getUrl('ok', url), promise);
 	}
+
+	static telegram(url, promise = null) {
+		return Share.openWindow(Share.getUrl('telegram', url), promise);
+	}
+
 }
 
 Share.urlList = {
@@ -81,4 +75,5 @@ Share.urlList = {
 	vk: 'https://vk.com/share.php?url=',
 	twitter: 'http://twitter.com/share?url=',
 	ok: 'https://connect.ok.ru/offer?url=',
+	telegram: 'https://t.me/share/url?url=',
 };
