@@ -26,6 +26,9 @@ npm install --save ninelines-sharing
     <button class="social__button" type="button" data-social="ok">
         Одноклассники
     </button>
+    <button class="social__button" type="button" data-social="telegram">
+        Telegram
+    </button>
 </div>
 ```
 
@@ -51,6 +54,10 @@ Array.from(document.querySelectorAll('[data-social]')).forEach((link) => {
 
             case 'ok':
                 Share.ok(url);
+                break;
+
+            case 'telegram':
+                Share.telegram(url);
                 break;
         }
     });
