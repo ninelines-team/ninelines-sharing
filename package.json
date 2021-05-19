@@ -1,6 +1,6 @@
 {
 	"name": "ninelines-sharing",
-	"version": "1.5.7",
+	"version": "1.5.8",
 	"description": "Sharing for your website",
 	"keywords": [
 		"sharing",
@@ -24,6 +24,7 @@
 		"build": "webpack --mode production",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
+	"browserslist": "> 0.25%, not dead",
 	"devDependencies": {
 		"@babel/core": "^7.14.3",
 		"@babel/preset-env": "^7.14.2",
